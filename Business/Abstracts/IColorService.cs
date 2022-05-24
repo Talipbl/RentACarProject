@@ -6,7 +6,7 @@ namespace Business.Abstracts
     public interface IColorService
     {
         List<Color> GetAll();
-        Car Get(int id);
+        Color Get(int id);
         void Add(Color color);
         void Delete(Color color);
         void Update(Color color);

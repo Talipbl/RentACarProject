@@ -24,12 +24,12 @@ namespace Business.Concretes
 
         public void Delete(Brand brand)
         {
-            throw new NotImplementedException();
+            _brandDal.Delete(brand);
         }
 
         public Brand Get(int id)
         {
-            throw new NotImplementedException();
+            return _brandDal.Get(p => p.BrandId == id);
         }
 
         public List<Brand> GetAll()
@@ -39,7 +39,7 @@ namespace Business.Concretes
 
         public void Update(Brand brand)
         {
-            throw new NotImplementedException();
+            _brandDal.Update(brand);
         }
     }
 }

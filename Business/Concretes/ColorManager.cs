@@ -1,4 +1,5 @@
 ﻿using Business.Abstracts;
+using DataAccess.Abstracts;
 using Entities.Concretes.Models;
 using System;
 using System.Collections.Generic;
@@ -7,29 +8,34 @@ namespace Business.Concretes
 {
     public class ColorManager : IColorService
     {
+        IColorDal _colorDal;
+        public ColorManager(IColorDal colorDal)
+        {
+            _colorDal = colorDal;
+        }
         public void Add(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Add(color);
         }
 
         public void Delete(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Delete(color);
         }
 
-        public Car Get(int id)
+        public Color Get(int id)
         {
-            throw new NotImplementedException();
+            return _colorDal.Get(p => p.ColorId == id);
         }
 
         public List<Color> GetAll()
         {
-            throw new NotImplementedException();
+            return _colorDal.GetAll();
         }
 
         public void Update(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
         }
     }
 

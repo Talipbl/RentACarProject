@@ -6,7 +6,7 @@ namespace Business.Abstracts
     public interface ICustomerService
     {
         List<Customer> GetAll();
-        Car Get(int id);
+        Customer Get(string id);
         void Add(Customer customer);
         void Delete(Customer customer);
         void Update(Customer customer);
