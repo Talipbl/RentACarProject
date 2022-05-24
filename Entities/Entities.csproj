@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Abstracts\" />
-    <Folder Include="Concretes\DataTransferObjects\" />
   </ItemGroup>
 
   <ItemGroup>

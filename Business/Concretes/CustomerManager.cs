@@ -23,7 +23,7 @@ namespace Business.Concretes
             _customerDal.Delete(customer);
         }
 
-        public Customer Get(string id)
+        public Customer Get(int id)
         {
             return _customerDal.Get(p => p.CustomerId == id);
         }

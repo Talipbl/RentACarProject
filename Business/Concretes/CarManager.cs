@@ -25,7 +25,7 @@ namespace Business.Concretes
 
         public Car Get(int id)
         {
-            return _carDal.Get(p => p.Id == id);
+            return _carDal.Get(p => p.CarId == id);
         }
 
         public List<Car> GetAll()

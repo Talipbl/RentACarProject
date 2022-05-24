@@ -10,10 +10,10 @@ namespace Entities.Concretes.Models
 {
     public class Customer : IEntity
     {
-        public string CustomerId { get; set; }
-        public string FirsName { get; set; }
+        public int CustomerId { get; set; }
+        public string Id { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
-        public short Age { get; set; }
         public string PhoneNumber { get; set; }
         public string PhotoPath { get; set; }
 

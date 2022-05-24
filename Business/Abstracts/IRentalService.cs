@@ -1,4 +1,5 @@
-﻿using Entities.Concretes.Models;
+﻿using Entities.Concretes.DataTransferObjects;
+using Entities.Concretes.Models;
 using System.Collections.Generic;
 
 namespace Business.Abstracts
@@ -6,7 +7,8 @@ namespace Business.Abstracts
     public interface IRentalService
     {
         List<Rental> GetAll();
-        Car Get(int id);
+        Rental Get(int id);
+        List<RentalDetailDTO> RentalDetails();
         void Add(Rental rental);
         void Delete(Rental rental);
         void Update(Rental rental);

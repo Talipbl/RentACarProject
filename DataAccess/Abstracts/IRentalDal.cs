@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess;
+using Entities.Concretes.DataTransferObjects;
 using Entities.Concretes.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace DataAccess.Abstracts
 {
     public interface IRentalDal: IEntityRepository<Rental>
     {
-
+        List<RentalDetailDTO> RentalDetails();
     }
 }
