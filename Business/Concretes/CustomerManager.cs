@@ -1,4 +1,7 @@
 ﻿using Business.Abstracts;
+using Business.Constanst;
+using Core.Utilities.Results;
+using Core.Utilities.Results.Abstracts;
 using DataAccess.Abstracts;
 using Entities.Concretes.Models;
 using System;
@@ -13,29 +16,37 @@ namespace Business.Concretes
         {
             _customerDal = customerDal;
         }
-        public void Add(Customer customer)
+        public IResult BaseOperations(bool success, string message)
         {
-            _customerDal.Add(customer);
+            if (success)
+            {
+                return new SuccessResult(message);
+            }
+            return new ErrorResult(Messages.ProcessFailed);
+        }
+        public IResult Add(Customer customer)
+        {
+            return BaseOperations(_customerDal.Add(customer).Success, Messages.Customer.Added);
         }
 
-        public void Delete(Customer customer)
+        public IResult Delete(Customer customer)
         {
-            _customerDal.Delete(customer);
+            return BaseOperations(_customerDal.Delete(customer).Success, Messages.Customer.Deleted);
         }
 
-        public Customer Get(int id)
+        public IDataResult<Customer> Get(int id)
         {
-            return _customerDal.Get(p => p.CustomerId == id);
+            return new SuccessDataResult<Customer>(_customerDal.Get(p => p.CustomerId == id), Messages.Customer.Listed);
         }
 
-        public List<Customer> GetAll()
+        public IDataResult<List<Customer>> GetAll()
         {
-            return _customerDal.GetAll();
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.Customer.Listed);
         }
 
-        public void Update(Customer customer)
+        public IResult Update(Customer customer)
         {
-            _customerDal.Update(customer);
+            return BaseOperations(_customerDal.Update(customer).Success, Messages.Customer.Updated);
         }
     }
 

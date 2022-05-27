@@ -1,4 +1,5 @@
-﻿using Entities.Concretes.DataTransferObjects;
+﻿using Core.Utilities.Results.Abstracts;
+using Entities.Concretes.DataTransferObjects;
 using Entities.Concretes.Models;
 using System.Collections.Generic;
 
@@ -6,12 +7,12 @@ namespace Business.Abstracts
 {
     public interface IRentalService
     {
-        List<Rental> GetAll();
-        Rental Get(int id);
-        List<RentalDetailDTO> RentalDetails();
-        void Add(Rental rental);
-        void Delete(Rental rental);
-        void Update(Rental rental);
+        IDataResult<List<Rental>> GetAll();
+        IDataResult<Rental> Get(int id);
+        IDataResult<List<RentalDetailDTO>> RentalDetails();
+        IResult Add(Rental rental);
+        IResult Delete(Rental rental);
+        IResult Update(Rental rental);
     }
 
 

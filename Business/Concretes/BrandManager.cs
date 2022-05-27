@@ -1,4 +1,7 @@
 ﻿using Business.Abstracts;
+using Business.Constanst;
+using Core.Utilities.Results;
+using Core.Utilities.Results.Abstracts;
 using DataAccess.Abstracts;
 using Entities.Concretes.Models;
 using System;
@@ -16,30 +19,38 @@ namespace Business.Concretes
         {
             _brandDal = brandDal;
         }
-
-        public void Add(Brand brand)
+        public IResult BaseOperations(bool success, string message)
         {
-            _brandDal.Add(brand);
+            if (success)
+            {
+                return new SuccessResult(message);
+            }
+            return new ErrorResult(Messages.ProcessFailed);
         }
 
-        public void Delete(Brand brand)
+        public IResult Add(Brand brand)
         {
-            _brandDal.Delete(brand);
+            return BaseOperations(_brandDal.Add(brand).Success, Messages.Brand.Added);
         }
 
-        public Brand Get(int id)
+        public IResult Delete(Brand brand)
         {
-            return _brandDal.Get(p => p.BrandId == id);
+            return BaseOperations(_brandDal.Delete(brand).Success, Messages.Brand.Deleted);
         }
 
-        public List<Brand> GetAll()
+        public IDataResult<Brand> Get(int id)
         {
-            return _brandDal.GetAll();
+            return new SuccessDataResult<Brand>(_brandDal.Get(p => p.BrandId == id), Messages.Brand.Listed);
         }
 
-        public void Update(Brand brand)
+        public IDataResult<List<Brand>> GetAll()
         {
-            _brandDal.Update(brand);
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.Brand.Listed);
+        }
+
+        public IResult Update(Brand brand)
+        {
+            return BaseOperations(_brandDal.Update(brand).Success, Messages.Brand.Updated);
         }
     }
 }

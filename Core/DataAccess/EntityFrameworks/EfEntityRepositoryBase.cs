@@ -1,4 +1,6 @@
 ﻿using Core.Entities;
+using Core.Utilities.Results;
+using Core.Utilities.Results.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,24 +15,24 @@ namespace Core.DataAccess.EntityFrameworks
         where TEntity : class, IEntity, new()
         where TContext: DbContext, new()
     {
-        public void BaseOperations(TEntity entity, EntityState state)
+        public IResult BaseOperations(TEntity entity, EntityState state)
         {
             using (TContext context = new TContext())
             {
                 var handledEntity = context.Entry(entity);
                 handledEntity.State = state;
-                context.SaveChanges();
+                return context.SaveChanges() > 0 ? new Result(true) : new Result(false);
             }
         }
 
-        public void Add(TEntity entity)
+        public IResult Add(TEntity entity)
         {
-            BaseOperations(entity, EntityState.Added);
+            return BaseOperations(entity, EntityState.Added);
         }
 
-        public void Delete(TEntity entity)
+        public IResult Delete(TEntity entity)
         {
-            BaseOperations(entity, EntityState.Deleted);
+            return BaseOperations(entity, EntityState.Deleted);
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
@@ -50,9 +52,9 @@ namespace Core.DataAccess.EntityFrameworks
             }
         }
 
-        public void Update(TEntity entity)
+        public IResult Update(TEntity entity)
         {
-            BaseOperations(entity, EntityState.Modified);
+            return BaseOperations(entity, EntityState.Modified);
         }
     }
 }

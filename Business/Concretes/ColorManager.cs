@@ -1,4 +1,7 @@
 ﻿using Business.Abstracts;
+using Business.Constanst;
+using Core.Utilities.Results;
+using Core.Utilities.Results.Abstracts;
 using DataAccess.Abstracts;
 using Entities.Concretes.Models;
 using System;
@@ -13,29 +16,37 @@ namespace Business.Concretes
         {
             _colorDal = colorDal;
         }
-        public void Add(Color color)
+        public IResult BaseOperations(bool success, string message)
         {
-            _colorDal.Add(color);
+            if (success)
+            {
+                return new SuccessResult(message);
+            }
+            return new ErrorResult(Messages.ProcessFailed);
+        }
+        public IResult Add(Color color)
+        {
+            return BaseOperations(_colorDal.Add(color).Success, Messages.Color.Added);
         }
 
-        public void Delete(Color color)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(color);
+            return BaseOperations(_colorDal.Delete(color).Success, Messages.Color.Deleted);
         }
 
-        public Color Get(int id)
+        public IDataResult<Color> Get(int id)
         {
-            return _colorDal.Get(p => p.ColorId == id);
+            return new SuccessDataResult<Color>(_colorDal.Get(p => p.ColorId == id), Messages.Color.Listed);
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),Messages.Color.Listed);
         }
 
-        public void Update(Color color)
+        public IResult Update(Color color)
         {
-            _colorDal.Update(color);
+            return BaseOperations(_colorDal.Update(color).Success, Messages.Color.Updated);
         }
     }
 

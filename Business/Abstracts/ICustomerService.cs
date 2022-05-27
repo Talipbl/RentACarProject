@@ -1,15 +1,16 @@
-﻿using Entities.Concretes.Models;
+﻿using Core.Utilities.Results.Abstracts;
+using Entities.Concretes.Models;
 using System.Collections.Generic;
 
 namespace Business.Abstracts
 {
     public interface ICustomerService
     {
-        List<Customer> GetAll();
-        Customer Get(int id);
-        void Add(Customer customer);
-        void Delete(Customer customer);
-        void Update(Customer customer);
+        IDataResult<List<Customer>> GetAll();
+        IDataResult<Customer> Get(int id);
+        IResult Add(Customer customer);
+        IResult Delete(Customer customer);
+        IResult Update(Customer customer);
     }
 
 

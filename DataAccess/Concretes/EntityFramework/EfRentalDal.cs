@@ -20,7 +20,7 @@ namespace DataAccess.Concretes.EntityFramework
                              join b in context.Cars on a.CarId equals b.CarId
                              join c in context.Brands on b.BrandId equals c.BrandId
                              join d in context.Customers on a.CustomerId equals d.CustomerId
-                             
+
                              select new RentalDetailDTO
                              {
                                  RentId = a.RentID,

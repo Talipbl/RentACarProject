@@ -1,4 +1,7 @@
 ﻿using Business.Abstracts;
+using Business.Constanst;
+using Core.Utilities.Results;
+using Core.Utilities.Results.Abstracts;
 using DataAccess.Abstract;
 using Entities.Concretes.Models;
 using System;
@@ -13,29 +16,37 @@ namespace Business.Concretes
         {
             _carDal = carDal;
         }
-        public void Add(Car car)
+        public IResult BaseOperations(bool success, string message)
         {
-            _carDal.Add(car);
+            if (success)
+            {
+                return new SuccessResult(message);
+            }
+            return new ErrorResult(Messages.ProcessFailed);
+        }
+        public IResult Add(Car car)
+        {
+            return BaseOperations(_carDal.Add(car).Success, Messages.Car.Added);
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
-            _carDal.Delete(car);
+            return BaseOperations(_carDal.Delete(car).Success, Messages.Car.Deleted);
         }
 
-        public Car Get(int id)
+        public IDataResult<Car> Get(int id)
         {
-            return _carDal.Get(p => p.CarId == id);
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.CarId == id), Messages.Car.Listed);
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Car.Listed);
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
-            _carDal.Update(car);
+            return BaseOperations(_carDal.Update(car).Success, Messages.Car.Updated);
         }
     }
 }
