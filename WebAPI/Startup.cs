@@ -1,3 +1,9 @@
+using Business.Abstracts;
+using Business.Concretes;
+using DataAccess.Abstract;
+using DataAccess.Abstracts;
+using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concretes.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +38,21 @@ namespace WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
             });
+
+            services.AddSingleton<IBrandService, BrandManager>();
+            services.AddSingleton<IBrandDal, EfBrandDal>();
+
+            services.AddSingleton<ICarService, CarManager>();
+            services.AddSingleton<ICarDal, EfCarDal>();
+
+            services.AddSingleton<IColorService, ColorManager>();
+            services.AddSingleton<IColorDal, EfColorDal>();
+
+            services.AddSingleton<ICustomerService, CustomerManager>();
+            services.AddSingleton<ICustomerDal, EfCustomerDal>();
+
+            services.AddSingleton<IRentalService, RentalManager>();
+            services.AddSingleton<IRentalDal, EfRentalDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

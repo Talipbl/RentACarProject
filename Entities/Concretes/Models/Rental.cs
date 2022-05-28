@@ -12,7 +12,7 @@ namespace Entities.Concretes.Models
     public class Rental : IEntity
     {
         [Key]
-        public int RentID { get; set; }
+        public int RentId { get; set; }
         public int CustomerId { get; set; }
         public int CarId { get; set; }
         public DateTime RentDate { get; set; }

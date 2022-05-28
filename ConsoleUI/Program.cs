@@ -20,7 +20,7 @@ namespace ConsoleUI
         private static void RentalTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            foreach (var item in rentalManager.RentalDetails())
+            foreach (var item in rentalManager.RentalDetails().Data)
             {
                 Console.WriteLine(item.RentId + " / " + item.CustomerName + " / " + item.CarName + " / " + item.RentDate.ToString());
             }
@@ -39,7 +39,7 @@ namespace ConsoleUI
         private static void BrandTest()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var item in brandManager.GetAll())
+            foreach (var item in brandManager.GetAll().Data)
             {
                 Console.WriteLine(item.BrandName);
             }

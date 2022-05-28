@@ -37,7 +37,7 @@ namespace Business.Concretes
 
         public IDataResult<Rental> Get(int id)
         {
-            return new SuccessDataResult<Rental>(_rentalDal.Get(p => p.RentID == id), Messages.Rental.Listed);
+            return new SuccessDataResult<Rental>(_rentalDal.Get(p => p.RentId == id), Messages.Rental.Listed);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -45,9 +45,9 @@ namespace Business.Concretes
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Rental.Listed);
         }
 
-        public List<RentalDetailDTO> RentalDetails()
+        public IDataResult<List<RentalDetailDTO>> RentalDetails()
         {
-            return _rentalDal.RentalDetails();
+            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDal.RentalDetails(),Messages.Rental.Listed);
         }
 
         public IResult Update(Rental rental)
