@@ -1,5 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.Constanst;
+using Business.ValidationRules.FluentValidation;
+using Core.Autofac.Validation;
 using Core.Utilities.Results;
 using Core.Utilities.Results.Abstracts;
 using DataAccess.Abstracts;
@@ -28,6 +30,7 @@ namespace Business.Concretes
             return new ErrorResult(Messages.ProcessFailed);
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
             return BaseOperations(_brandDal.Add(brand).Success, Messages.Brand.Added);

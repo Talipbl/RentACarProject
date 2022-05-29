@@ -46,5 +46,13 @@ namespace Business.Constanst
             internal static string Updated = "Kiralama işlemi güncellendi";
             internal static string Listed = "Kiralama işlemi listelendi";
         }
+        public static class Validation
+        {
+            public static string GreaterThanRentDate = "Teslim tarihi kiralama tarihinden önce olamaz.";
+        }
+        public static class Error
+        {
+
+        }
     }
 }
