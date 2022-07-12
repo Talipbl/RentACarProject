@@ -37,9 +37,9 @@ namespace WebAPI.Controllers
             return _controllerHelper.CheckIfSuccess(_colorService.Add(color));
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Color color)
+        public IActionResult Delete(int colorId)
         {
-            return _controllerHelper.CheckIfSuccess(_colorService.Delete(color));
+            return _controllerHelper.CheckIfSuccess(_colorService.Delete(colorId));
         }
         [HttpPost("update")]
         public IActionResult Update(Color color)

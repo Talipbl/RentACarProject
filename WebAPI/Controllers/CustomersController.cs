@@ -39,9 +39,9 @@ namespace WebAPI.Controllers
             return _controllerHelper.CheckIfSuccess(_customerService.Add(customer));
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Customer customer)
+        public IActionResult Delete(int customerId)
         {
-            return _controllerHelper.CheckIfSuccess(_customerService.Delete(customer));
+            return _controllerHelper.CheckIfSuccess(_customerService.Delete(customerId));
         }
         [HttpPost("update")]
         public IActionResult Update(Customer customer)

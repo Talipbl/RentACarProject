@@ -23,15 +23,20 @@ namespace WebAPI.Controllers
         {
             return _controllerHelper.CheckIfSuccess(_carImageService.Add(formFile, carId));
         }
-        [HttpGet("delete")]
-        public IActionResult Delete(CarImage carImage)
+        [HttpGet("getimages")]
+        public IActionResult Getımages(int carId)
         {
-            return _controllerHelper.CheckIfSuccess(_carImageService.Delete(carImage));
+            return _controllerHelper.CheckIfSuccess(_carImageService.GetAll(carId));
         }
         [HttpGet("delete")]
         public IActionResult Delete(int imageId)
         {
             return _controllerHelper.CheckIfSuccess(_carImageService.Delete(imageId));
+        }
+        [HttpPost("update")]
+        public IActionResult Delete(CarImage carImage)
+        {
+            return _controllerHelper.CheckIfSuccess(_carImageService.Update(carImage));
         }
     }
 }

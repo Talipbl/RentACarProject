@@ -74,9 +74,9 @@ namespace Business.Concretes
             return new SuccessDataResult<CarImage>(_carImageDal.GetFirst(p => p.CarId == id));
         }
 
-        public IDataResult<List<CarImage>> GetAll()
+        public IDataResult<List<CarImage>> GetAll(int carId)
         {
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c=>c.CarId==carId));
         }
 
         public IResult Update(CarImage carImage)

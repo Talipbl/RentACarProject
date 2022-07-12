@@ -38,9 +38,9 @@ namespace WebAPI.Controllers
             return _controllerHelper.CheckIfSuccess(_carService.Add(car));
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Car car)
+        public IActionResult Delete(int carId)
         {
-            return _controllerHelper.CheckIfSuccess(_carService.Delete(car));
+            return _controllerHelper.CheckIfSuccess(_carService.Delete(carId));
         }
         [HttpPost("update")]
         public IActionResult Update(Car car)

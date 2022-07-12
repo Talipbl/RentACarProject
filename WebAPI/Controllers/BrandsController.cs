@@ -40,9 +40,9 @@ namespace WebAPI.Controllers
             return _controllerHelper.CheckIfSuccess(_brandService.Add(brand));
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Brand brand)
+        public IActionResult Delete(int brandId)
         {
-            return _controllerHelper.CheckIfSuccess(_brandService.Delete(brand));
+            return _controllerHelper.CheckIfSuccess(_brandService.Delete(brandId));
         }
         [HttpPost("update")]
         public IActionResult Update(Brand brand)
