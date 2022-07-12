@@ -30,9 +30,9 @@ namespace Business.Concretes
             return BaseOperations(_rentalDal.Add(rental).Success, Messages.Rental.Added);
         }
 
-        public IResult Delete(Rental rental)
+        public IResult Delete(int rentalId)
         {
-            return BaseOperations(_rentalDal.Delete(rental).Success, Messages.Rental.Deleted);
+            return BaseOperations(_rentalDal.Delete(new Rental { RentId = rentalId}).Success, Messages.Rental.Deleted);
         }
 
         public IDataResult<Rental> Get(int id)

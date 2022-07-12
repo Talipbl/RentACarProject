@@ -29,9 +29,9 @@ namespace Business.Concretes
             return BaseOperations(_colorDal.Add(color).Success, Messages.Color.Added);
         }
 
-        public IResult Delete(Color color)
+        public IResult Delete(int colorID)
         {
-            return BaseOperations(_colorDal.Delete(color).Success, Messages.Color.Deleted);
+            return BaseOperations(_colorDal.Delete(new Color { ColorId = colorID }).Success, Messages.Color.Deleted);
         }
 
         public IDataResult<Color> Get(int id)
@@ -41,7 +41,7 @@ namespace Business.Concretes
 
         public IDataResult<List<Color>> GetAll()
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),Messages.Color.Listed);
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.Color.Listed);
         }
 
         public IResult Update(Color color)

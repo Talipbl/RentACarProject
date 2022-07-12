@@ -29,9 +29,9 @@ namespace Business.Concretes
             return BaseOperations(_customerDal.Add(customer).Success, Messages.Customer.Added);
         }
 
-        public IResult Delete(Customer customer)
+        public IResult Delete(int customerId)
         {
-            return BaseOperations(_customerDal.Delete(customer).Success, Messages.Customer.Deleted);
+            return BaseOperations(_customerDal.Delete(new Customer { CustomerId = customerId }).Success, Messages.Customer.Deleted);
         }
 
         public IDataResult<Customer> Get(int id)

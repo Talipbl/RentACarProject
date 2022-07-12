@@ -29,9 +29,9 @@ namespace Business.Concretes
             return BaseOperations(_carDal.Add(car).Success, Messages.Car.Added);
         }
 
-        public IResult Delete(Car car)
+        public IResult Delete(int carId)
         {
-            return BaseOperations(_carDal.Delete(car).Success, Messages.Car.Deleted);
+            return BaseOperations(_carDal.Delete(new Car { CarId = carId }).Success, Messages.Car.Deleted);
         }
 
         public IDataResult<Car> Get(int id)

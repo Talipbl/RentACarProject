@@ -9,7 +9,7 @@ namespace Business.Abstracts
         IDataResult<List<Customer>> GetAll();
         IDataResult<Customer> Get(int id);
         IResult Add(Customer customer);
-        IResult Delete(Customer customer);
+        IResult Delete(int customerId);
         IResult Update(Customer customer);
     }
 

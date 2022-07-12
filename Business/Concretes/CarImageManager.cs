@@ -64,12 +64,12 @@ namespace Business.Concretes
             return new ErrorResult(checkResult.Message);
         }
 
-        public IResult Delete(CarImage carImage)
+        public IResult Delete(int imageId)
         {
-            return _carImageDal.Delete(carImage);
+            return _carImageDal.Delete(new CarImage { ImageId = imageId });
         }
 
-        public IDataResult<CarImage> Get(int id)
+        public IDataResult<CarImage> GetFirst(int id)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.GetFirst(p => p.CarId == id));
         }

@@ -14,9 +14,14 @@ namespace DataAccess.Concretes.EntityFramework
     {
         public CarImage GetFirst(Expression<Func<CarImage, bool>> filter)
         {
-            using(ReCapContext context = new ReCapContext())
+            using (ReCapContext context = new ReCapContext())
             {
-                return context.Set<CarImage>().FirstOrDefault(filter);
+                var result = context.Set<CarImage>().FirstOrDefault(filter);
+                if (result != null)
+                {
+                    return result;
+                }
+                return context.Set<CarImage>().FirstOrDefault(c=>c.CarId == 100);
             }
         }
     }

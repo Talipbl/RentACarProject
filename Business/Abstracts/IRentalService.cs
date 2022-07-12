@@ -11,7 +11,7 @@ namespace Business.Abstracts
         IDataResult<Rental> Get(int id);
         IDataResult<List<RentalDetailDTO>> RentalDetails();
         IResult Add(Rental rental);
-        IResult Delete(Rental rental);
+        IResult Delete(int rentalId);
         IResult Update(Rental rental);
     }
 

@@ -36,9 +36,9 @@ namespace Business.Concretes
             return BaseOperations(_brandDal.Add(brand).Success, Messages.Brand.Added);
         }
 
-        public IResult Delete(Brand brand)
+        public IResult Delete(int brandId)
         {
-            return BaseOperations(_brandDal.Delete(brand).Success, Messages.Brand.Deleted);
+            return BaseOperations(_brandDal.Delete(new Brand { BrandId = brandId }).Success, Messages.Brand.Deleted);
         }
 
         public IDataResult<Brand> Get(int id)

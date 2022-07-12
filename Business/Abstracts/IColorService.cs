@@ -9,7 +9,7 @@ namespace Business.Abstracts
         IDataResult<List<Color>> GetAll();
         IDataResult<Color> Get(int id);
         IResult Add(Color color);
-        IResult Delete(Color color);
+        IResult Delete(int colorId);
         IResult Update(Color color);
     }
 
