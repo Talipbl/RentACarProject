@@ -8,43 +8,47 @@ namespace Business.Constanst
 {
     public static class Messages
     {
-        internal static string ProcessFailed = "İşlem başarısız";
-        internal static string DataListed = "Veri Listelendi";
+        public static string ProcessFailed = "İşlem başarısız";
+        public static string DataListed = "Veri Listelendi";
 
         public static class Brand
         {
-            internal static string Added = "Marka eklendi";
-            internal static string Deleted = "Marka silindi.";
-            internal static string Updated = "Marka güncellendi";
-            internal static string Listed = "Markalar Listelendi";
+            public static string Added = "Marka eklendi";
+            public static string Deleted = "Marka silindi.";
+            public static string Updated = "Marka güncellendi";
+            public static string Listed = "Markalar Listelendi";
         }
         public static class Car
         {
-            internal static string Added = "Araç eklendi";
-            internal static string Deleted = "Araç silindi.";
-            internal static string Updated = "Araç güncellendi";
-            internal static string Listed = "Renkler listelendi";
+            public static string Added = "Araç eklendi";
+            public static string Deleted = "Araç silindi.";
+            public static string Updated = "Araç güncellendi";
+            public static string Listed = "Renkler listelendi";
+        }
+        public static class CarImage
+        {
+            public static string CarImageLimitExceed = "Seçilen araç için maksimum resim sayısına ulaşıldı";
         }
         public static class Color
         {
-            internal static string Added = "Renk eklendi";
-            internal static string Deleted = "Renk silindi.";
-            internal static string Updated = "Renk güncellendi";
-            internal static string Listed = "Renkler listelendi";
+            public static string Added = "Renk eklendi";
+            public static string Deleted = "Renk silindi.";
+            public static string Updated = "Renk güncellendi";
+            public static string Listed = "Renkler listelendi";
         }
         public static class Customer
         {
-            internal static string Added = "Müşteri eklendi";
-            internal static string Deleted = "Müşteri silindi.";
-            internal static string Updated = "Müşteri güncellendi";
-            internal static string Listed = "Müşteri listelendi";
+            public static string Added = "Müşteri eklendi";
+            public static string Deleted = "Müşteri silindi.";
+            public static string Updated = "Müşteri güncellendi";
+            public static string Listed = "Müşteri listelendi";
         }
         public static class Rental
         {
-            internal static string Added = "Kiralama işlemi eklendi";
-            internal static string Deleted = "Kiralama işlemi silindi.";
-            internal static string Updated = "Kiralama işlemi güncellendi";
-            internal static string Listed = "Kiralama işlemi listelendi";
+            public static string Added = "Kiralama işlemi eklendi";
+            public static string Deleted = "Kiralama işlemi silindi.";
+            public static string Updated = "Kiralama işlemi güncellendi";
+            public static string Listed = "Kiralama işlemi listelendi";
         }
         public static class Validation
         {
@@ -52,7 +56,7 @@ namespace Business.Constanst
         }
         public static class Error
         {
-
+            public static string EmptyFile = "Seçili dosya yok";
         }
     }
 }

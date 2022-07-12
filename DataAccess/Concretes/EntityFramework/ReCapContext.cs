@@ -20,5 +20,6 @@ namespace DataAccess.Concretes.EntityFramework
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Rental> Rentals { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
+        public virtual DbSet<CarImage> CarImages { get; set; }
     }
 }

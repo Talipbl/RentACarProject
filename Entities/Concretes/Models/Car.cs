@@ -23,6 +23,7 @@ namespace Entities.Concretes.Models
         public virtual Brand Brand { get; set; }
         public virtual Color Color { get; set; }
         public virtual List<Rental>Rentals { get; set; }
+        public virtual List<CarImage> CarImages { get; set; }
 
     }
 }
